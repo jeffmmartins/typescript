@@ -47,3 +47,23 @@ const pessoaP: Person = {
     altura: 1.77
 }
 
+
+// Exemplo de type aliases ( dando apelido)
+type Criterio = "greater" | "lower"
+function chooseNumber(number1: number, number2: number, criterio?: Criterio ): number {
+    switch (criterio) {
+        case "greater":
+            return number1 > number2 ? number1 : number2
+        case "lower":
+            return number1 < number2 ? number2 : number1
+        default:
+            const numberAleatorio = Math.random()
+
+            if(numberAleatorio >= 0.5) return number1
+            return number2
+}
+}
+
+const resultado = chooseNumber(10,20)
+console.log(resultado)
+
