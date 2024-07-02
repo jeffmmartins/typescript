@@ -67,3 +67,34 @@ function chooseNumber(number1: number, number2: number, criterio?: Criterio ): n
 const resultado = chooseNumber(10,20)
 console.log(resultado)
 
+// Utility Types criar novos tipos a partir de tipos já existentes
+
+// 1 - Partial - isso faz com que todos os paramtros sao opcionais 
+ type PersonPartial = Partial<Person>
+
+ const outraPessoa: PersonPartial = {
+
+ }
+
+ // 2 - Required - faz com que os paramentros sejam obrigatorios 
+type PersonRequired = Required<Person>
+
+// 3- Pick - pegar alguns atributos 
+type PersonPick = Pick<Person, "nome" | "idade" >
+
+// 4 - omit - serve para esconder 
+type PersonOmit = Omit<Person, "profissao" >
+
+// 5- Exclude - consegue eliminar de dentro de uma union type um selecionado 
+type CriterioEXclude = Exclude<Criterio, "lower" >
+
+// 6 - Record 
+type Pessoas = Record<string, Person>
+
+const pessoas: Pessoas = {
+    "123-456-789-00": {
+        altura: 1.70,
+        nome: "jeff",
+    }
+}
+
