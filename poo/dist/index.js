@@ -11,14 +11,19 @@ class Pessoa {
     //metodo construtor é obrigatório , e pode receber parametros 
     // esses argumentos tem que atribuir aos atributos criados acima 
     // this o atributo nome quero que receba o nome que esta sendo passado no momento da cosntrução do objeto
-    constructor(nome, idade, altura, peso) {
+    constructor(nome, idade, altura, cpf) {
         this.nome = nome;
         this.idade = idade;
         this.altura = altura;
-        this.peso = peso;
+        this._cpf = cpf;
     }
     dormir() {
         console.log("dormindo ...");
+    }
+    // accessor : getter , e exige que faça a tipagem do retorno.
+    // quando for acessar fora da classe nao precico colocar ()
+    get cpf() {
+        return this._cpf;
     }
 }
 // criando uma pessoa (individuo /objeto) a partir das definições de classe Pessoa ou seja a partir da abstração 
@@ -26,8 +31,8 @@ class Pessoa {
 // criar é a mesma coisa de instanciar bastante usado em programação
 // o construtor define o que tenho que passar para a criação de uma nova pessoa  
 //this - este objeto pessoa1 o nome dele seja o que foi passando como paramentro no construtor
-const pessoa1 = new Pessoa("Jeff", 27, 1.70, 44);
-const pessoa2 = new Pessoa("vera", 60, 1.70, 55);
+const pessoa1 = new Pessoa("Jeff", 27, 1.70, "123456789");
+const pessoa2 = new Pessoa("vera", 60, 1.70, "12345679");
 console.log(pessoa1);
-console.log(pessoa2);
+console.log(pessoa2.cpf);
 console.log(pessoa1.dormir());
