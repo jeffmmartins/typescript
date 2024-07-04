@@ -53,16 +53,41 @@ class Pessoa implements Ipessoa {
         this._cpf = newCpf
      }
 }
+
+// super esta chamando o construtor da classe pai 
+class Professor extends Pessoa {
+    codigo:string;
+    
+    constructor(nome:string, idade:number, altura:number, cpf:string, codigo:string){
+        super(nome, idade, altura,cpf);
+        this.codigo = codigo;
+    }
+
+    ensinar(){
+        console.log("ensiando...")
+    }
+}
 // criando uma pessoa (individuo /objeto) a partir das definições de classe Pessoa ou seja a partir da abstração 
 // o () ao lado de Pessoa representa que estou chamando o constructor da class
 // criar é a mesma coisa de instanciar bastante usado em programação
 // o construtor define o que tenho que passar para a criação de uma nova pessoa  
 //this - este objeto pessoa1 o nome dele seja o que foi passando como paramentro no construtor
-const pessoa1 = new Pessoa("Jeff", 27, 1.70, "123456789")
-const pessoa2 = new Pessoa("vera", 60, 1.70, "12345679")
+const pessoa1 = new Pessoa("Jeff", 27, 1.70, "123.123.123-25")
+const pessoa2 = new Pessoa("vera", 60, 1.70, "123.123.123-25")
 
 console.log(pessoa1)
 console.log(pessoa2.cpf)
 console.log(pessoa1.dormir())
-pessoa2.cpf = "123"
-console.log(pessoa2.cpf)
+
+
+// objeto da classe professor 
+const professor = new Professor("professor", 30,1.56,"028.924.973-29","0001")
+console.log(professor)
+professor.dormir()
+professor.ensinar()
+
+// Polimorfismo 
+console.log(pessoa1 instanceof Pessoa)
+console.log(pessoa1 instanceof Professor)
+console.log(professor  instanceof Pessoa)
+console.log(professor instanceof Professor)
