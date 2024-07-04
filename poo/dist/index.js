@@ -25,6 +25,14 @@ class Pessoa {
     get cpf() {
         return this._cpf;
     }
+    // accessor: setter
+    set cpf(newCpf) {
+        if (newCpf.length !== 14) {
+            // é uma forma de lançar erro 
+            throw new Error("cpf is incorrect");
+        }
+        this._cpf = newCpf;
+    }
 }
 // criando uma pessoa (individuo /objeto) a partir das definições de classe Pessoa ou seja a partir da abstração 
 // o () ao lado de Pessoa representa que estou chamando o constructor da class
@@ -36,3 +44,5 @@ const pessoa2 = new Pessoa("vera", 60, 1.70, "12345679");
 console.log(pessoa1);
 console.log(pessoa2.cpf);
 console.log(pessoa1.dormir());
+pessoa2.cpf = "123";
+console.log(pessoa2.cpf);
